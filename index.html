@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Front End Capstone: Legacy</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+</head>
+<body ng-app="LegacyApp">
+
+<!-- navbar -->
+<div ng-include="'partials/navbar.html'"></div>
+
+<!-- container for views -->
+<div ng-view></div>
+
+
+
+
+<!-- All the script tags -->
+
+<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+
+<!-- app goes first -->
+<script type="text/javascript" src="app/app.js"></script>
+
+<script type="text/javascript" src="app/values/FBCreds.js"></script>
+
+<!-- factories 2nd -->
+<script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+<script type="text/javascript" src="app/factories/NoteFactory.js"></script>
+<script type="text/javascript" src="app/factories/FamilyFactory.js"></script>
+
+<!-- controllers 3rd -->
+<script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/NewNoteCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/FamilyCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/LibraryCtrl.js"></script>
+
+
+<!-- <script type="text/javascript" src="app/controllers/PhotoCtrl.js"></script> -->
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
