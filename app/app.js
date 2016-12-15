@@ -16,6 +16,10 @@ var app = angular.module("LegacyApp", ["ngRoute"]);
 
 
 
+app.config(function($locationProvider) {
+  $locationProvider.html5Mode(true);
+});
+
 // routing
 app.config(function($routeProvider) {
 
@@ -38,8 +42,6 @@ app.config(function($routeProvider) {
   })
   .otherwise('/');
 });
-
-
 
 // linking firebase & creds
 

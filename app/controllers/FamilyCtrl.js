@@ -11,9 +11,12 @@ app.controller('FamilyCtrl', function($scope, $location, FamilyFactory) {
 
 
 $scope.addNewFamily = function() {
-  console.log("you're adding a new family!", $scope.newFamily);
+  console.log("add new family?");
+FamilyFactory.postNewFamily({FamilyName: "cormack"})
+.then((obj) => {
+  console.log("obj", obj);
+});
 };
-
 
 
 

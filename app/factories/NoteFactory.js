@@ -7,11 +7,9 @@ app.factory("NoteFactory", function($http, FBCreds) {
   let postNote = (newNote) => {
     return new Promise ( (resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/notes.json`, angular.toJson(newNote))
-          .success( (obj) => {
+          .then( (obj) => {
             resolve(obj);
-          })
-          .error( (error) => {
-            reject(error);
+
           });
         });
       };
@@ -25,12 +23,9 @@ app.factory("NoteFactory", function($http, FBCreds) {
 
     return new Promise ( (resolve, reject) => {
       $http.get(`${FBCreds.databaseURL}/notes.json`)
-      .success( (noteObject) => {
+      .then( (noteObject) => {
         let noteCollection = noteObject;
         resolve(notes);
-      })
-      .error( (error) => {
-        reject(error);
       });
     });
   };
