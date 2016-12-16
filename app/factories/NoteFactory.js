@@ -52,7 +52,9 @@ app.factory("NoteFactory", function($http, FBCreds, AuthFactory) {
   };
 
 
-
+let updateNote = function(id, newNote) {
+  let user
+}
 
 
 
