@@ -9,10 +9,11 @@ app.controller("NewNoteCtrl", function ($scope, $location, NoteFactory) {
 
 
   $scope.addNewNote = function() {
-    console.log("adding new note", $scope.newNote);
-    NoteFactory.postNote($scope.newNote)
+    console.log("adding new note", $scope.note);
+    NoteFactory.postNote($scope.note)
     .then(function(response) {
-      console.log("you posted a new note");
+      $location.url("/library");
+      console.log("you posted a new note", $scope.note.Title);
     });
   };
 });

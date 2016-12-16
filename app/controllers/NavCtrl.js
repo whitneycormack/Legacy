@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("navCtrl", function($scope, $rootScope){
-  $rootScope.userIsLoggedIn = false;
+app.controller("NavCtrl", function($scope, $rootScope){
+  // $rootScope.userIsLoggedIn = false;
   $(".button-collapse").sideNav();
 });

@@ -22,7 +22,7 @@ app.controller("LoginCtrl", function($scope, AuthFactory, $window, NoteFactory, 
     AuthFactory.loginUser($scope.account)
     .then( (user) => {
       console.log("user", user);
-      // $window.location.href = "/library";
+      $window.location.href = "/library";
     });
   };
 

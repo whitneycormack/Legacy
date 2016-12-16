@@ -21,7 +21,13 @@ app.config(function($locationProvider) {
 });
 
 // routing
-app.config(function($routeProvider) {
+app.config(function($routeProvider, FBCreds) {
+  let authConfig = {
+      apiKey: FBCreds.apiKey,
+      authDomain: FBCreds.authDomain
+    };
+
+  firebase.initializeApp(authConfig);
 
   $routeProvider
   .when('/', {
@@ -40,19 +46,11 @@ app.config(function($routeProvider) {
     templateUrl: 'partials/familyPartial.html',
     controller: 'FamilyCtrl'
   })
+  .when('/notes/details/:itemId', {
+    templateUrl: 'partials/noteDetailsPartial.html',
+    controller: 'NoteViewCtrl'
+  })
   .otherwise('/');
-});
-
-// linking firebase & creds
-
-app.run( ($location, FBCreds) => {
-  let authConfig = {
-      apiKey: FBCreds.apiKey,
-      authDomain: FBCreds.authDomain
-    };
-
-  firebase.initializeApp(authConfig);
-
 });
 
 

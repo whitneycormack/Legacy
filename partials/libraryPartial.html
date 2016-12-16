@@ -1,37 +1,18 @@
-<ul class="collection">
-    <li class="collection-item avatar" ng-repeat="note in notes">
+<div ng-controller="LibraryCtrl">
 
-      <h3 class="title" ng-model="Title">{{notes.Title}}</h3>
+<h2> note library </h2>
 
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">folder</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle green">insert_chart</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle red">play_arrow</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-  </ul>
+<ul class="collection" ng-repeat="note in notes">
 
+  <h5 class="title" ng-model="Title"><a ng-href="notes/details/{{note.id}}"></a>{{note.Title}}</h5>
+  <p class="text" ng-model="Text">{{note.Text}}</p>
 
+  <a class="btn-floating btn-large waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a>
+
+  <!-- <button ng-click="delete(note.id)"></button> -->
+</ul>
+
+</div>
 
 
 
