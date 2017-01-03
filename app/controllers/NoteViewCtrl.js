@@ -7,11 +7,15 @@ app.controller("NoteViewCtrl", function ($scope, $routeParams, NoteFactory) {
   $scope.selectedItem = null;
 
   $scope.editMode = function() {
-    editModeFlag = true;
+    $scope.editModeFlag = true;
   }
 
   $scope.submitEdit = function() {
     console.log($scope.selectedItem)
+    NoteFactory.updateNote($scope.selectedItem, $routeParams.itemId).then(function(){
+      console.log("success");
+      //location url
+    });
   }
 
   NoteFactory.getNotes()
