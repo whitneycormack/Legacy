@@ -1,7 +1,9 @@
 "use strict";
 
-app.controller("LibraryCtrl", function($scope, NoteFactory) {
+app.controller("LibraryCtrl", function($scope, $rootScope, NoteFactory, AuthFactory) {
   console.log("library ctrl hereee");
+  $scope.user = $rootScope.currentUser;
+  console.log("filter user", $scope.user)
   NoteFactory.getNotes()
   .then(function (noteCollection) {
     $scope.notes = noteCollection;
