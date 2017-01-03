@@ -3,7 +3,16 @@
 app.controller("NoteViewCtrl", function ($scope, $routeParams, NoteFactory) {
   console.log("noteview made it");
   $scope.notes = [];
-  $scope.selectedNote = null;
+  $scope.editModeFlag = false;
+  $scope.selectedItem = null;
+
+  $scope.editMode = function() {
+    editModeFlag = true;
+  }
+
+  $scope.submitEdit = function() {
+    console.log($scope.selectedItem)
+  }
 
   NoteFactory.getNotes()
   .then(function(noteCollection) {

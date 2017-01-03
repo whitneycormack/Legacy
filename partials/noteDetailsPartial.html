@@ -1,11 +1,20 @@
-<div ng-controller="NoteViewCtrl">
+<div>
 
 
 <h2>Note Details</h2>
+<div>
+  <h4>Title:</h4>
+  <h4 ng-if="!editModeFlag">{{selectedItem.Title}}</h4>
+  <input ng-if="editModeFlag" ng-model=selectedItem.Title>
+</div>
+<div>
+  <h5>Text:</h5>
+  <h5 ng-if="!editModeFlag">{{selectedItem.Text}}</h5>
+  <input ng-if="editModeFlag" ng-model=selectedItem.Text>
+</div>
 
-<h4>Title: {{selectedItem.Title}}</h4>
-<p>Text: {{selectedItem.Text}}</p>
-
+<button ng-if="!editModeFlag" ng-click="editMode()">Edit</button>
+<button ng-if="editModeFlag" ng-click="submitEdit()">Submit Edit</button>
 
 </div>
 
