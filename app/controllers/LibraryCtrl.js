@@ -1,9 +1,11 @@
 "use strict";
 
-app.controller("LibraryCtrl", function($scope, $rootScope, NoteFactory, AuthFactory) {
+app.controller("LibraryCtrl", function($scope, $rootScope, $location, $timeout, NoteFactory, AuthFactory) {
   console.log("library ctrl hereee");
+
   $scope.user = $rootScope.currentUser;
   console.log("filter user", $scope.user)
+
   NoteFactory.getNotes()
   .then(function (noteCollection) {
     $scope.notes = noteCollection;
@@ -23,6 +25,8 @@ $scope.delete = function (id) {
       .then(function(noteCollection) {
         console.log("note collection minus 1", noteCollection);
         $scope.notes = noteCollection;
+        $location.path("/library");
+        $timeout();
       });
     });
   };

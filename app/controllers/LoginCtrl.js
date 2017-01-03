@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("LoginCtrl", function($scope, $rootScope, AuthFactory, $window, NoteFactory, $location) {
+app.controller("LoginCtrl", function($scope, $rootScope, AuthFactory, $window, NoteFactory, $location, $timeout) {
   // tell controller what to look for
   $scope.account = {
     email: '',
@@ -23,7 +23,8 @@ app.controller("LoginCtrl", function($scope, $rootScope, AuthFactory, $window, N
     .then( (user) => {
       $rootScope.currentUser = user;
       console.log("user", user);
-      // $window.location.href = "/library";
+      $location.path("/library");
+      $timeout();
     });
   };
 

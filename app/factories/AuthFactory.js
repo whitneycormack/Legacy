@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("AuthFactory", function(FBCreds) {
+app.factory("AuthFactory", function($timeout, FBCreds) {
   console.log("auth factory is here");
 
     let currentUser = null;
@@ -14,9 +14,14 @@ app.factory("AuthFactory", function(FBCreds) {
     };
 
     let logoutUser = function() {
-      return firebase.auth().signOut();
-      // currentUser = null;
-      // console.log("current user", currentUser);
+      return firebase.auth().signOut()
+      .then(function() {
+        currentUser = null;
+        console.log("current user", currentUser);
+        $location.path('/login');
+        $timeout();
+
+      })
     };
 
     let isAuthenticated = function() {

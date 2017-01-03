@@ -1,69 +1,69 @@
 "use strict";
 
+app.controller("PhotoCtrl", function($scope, $location, PhotoFactory, FBCreds) {
+  console.log("photo factory was herrrree");
 
-// var img2fire = angular.module('img2fire', ['firebase', 'angular.filter']);
+$scope.photoEntry = {
+  Title: "",
+  Date: "",
+  Text: "",
 
-// angular.controller("photoCtrl", function($scope, $firebaseArray, FBCreds) {
-
-//   var ref = new Firebase("https://base64images.firebaseio.com/");
-
-//   var img = new Firebase("https://base64images.firebaseio.com/images");
-//   $scope.imgs = $firebaseArray(img);
-
-//   var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-//   $scope.uploadFile = function() {
-//     var sFileName = $("#nameImg").val();
-//     if (sFileName.length > 0) {
-//       var blnValid = false;
-//       for (var j = 0; j < _validFileExtensions.length; j++) {
-//         var sCurExtension = _validFileExtensions[j];
-//         if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-//           blnValid = true;
-//           var filesSelected = document.getElementById("nameImg").files;
-//           if (filesSelected.length > 0) {
-//             var fileToLoad = filesSelected[0];
-
-//             var fileReader = new FileReader();
-
-//             fileReader.onload = function(fileLoadedEvent) {
-//               var textAreaFileContents = document.getElementById(
-//                 "textAreaFileContents");
+}
 
 
-              $scope.imgs.$add({
-                date: Firebase.ServerValue.TIMESTAMP,
-                base64: fileLoadedEvent.target.result
-              });
-            };
+var selectedFile;
 
-            fileReader.readAsDataURL(fileToLoad);
-          }
-          break;
-        }
-      }
 
-      if (!blnValid) {
-        alert('File is not valid');
-        return false;
-      }
-    }
+$scope.addPhotoEntry = function() {
+  console.log("addding a new photo", $scope.photoEntry);
+  PhotoFactory.uploadFile($scope.photoEntry)
+  .then(function(response) {
+    Materialize.toast('You added a new photo!', 4000);
+    $location.url("/library");
+  });
+};
 
-    return true;
-  }
 
-  $scope.deleteimg = function(imgid) {
-    var r = confirm("Do you want to remove this image ?");
-    if (r == true) {
-      $scope.imgs.forEach(function(childSnapshot) {
-        if (childSnapshot.$id == imgid) {
-            $scope.imgs.$remove(childSnapshot).then(function(ref) {
-              ref.key() === childSnapshot.$id; // true
-            });
-        }
-      });
-    }
-  }
+
+
+
+
+$("#file").on("change", function(event) {
+  selectedFile = event.target.files[0];
+  $("#uploadButton").show();
+});
+
+
+
+
+
+// function uploadFile() {
+//   var filename = selectedFile.name;
+//   var storageRef = firebase.storage().ref('/userImages/' + filename);
+//   var uploadTask = storageRef.put(selectedFile);
+
+//   uploadTask.on('state_changed', function(snapshot) {
+
+//   }, function(error) {
+
+//   }, function() {
+//     var downloadURL = uploadTask.snapshot.downloadURL;
+//     console.log("downloadURL", downloadURL);
+//   })
+
+
+// }
+
+
+
+
+
+
+
+
+
 
 });
+
 
 
