@@ -50,6 +50,10 @@ app.config(function($routeProvider, FBCreds) {
     templateUrl: 'partials/noteDetailsPartial.html',
     controller: 'NoteViewCtrl'
   })
+  .when('/notes/edit/:id', {
+    templateUrl: 'partials/editPartial.html',
+    controller: 'EditCtrl'
+  })
   .otherwise('/');
 });
 

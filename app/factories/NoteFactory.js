@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("NoteFactory", function($http, FBCreds, AuthFactory) {
+app.factory("NoteFactory", function($q, $http, FBCreds, AuthFactory) {
   console.log("note factory made it to the party");
 
 
@@ -52,7 +52,24 @@ app.factory("NoteFactory", function($http, FBCreds, AuthFactory) {
   };
 
 
-
+let updateNote = function(updatedNote, id) {
+  return new Promise(function(resolve, reject) {
+    $http.put(
+      `${FBCreds.databaseURL}/notes/${id}.json`,
+        JSON.stringify({
+            Date: updatedNote.Date,
+            Text: updatedNote.Text,
+            Title: updatedNote.Title
+        })
+      )
+    .then(function() {
+        resolve();
+      })
+      .catch(function(error) {
+        reject(error);
+      });
+  })
+}
 
 
 
@@ -68,7 +85,7 @@ app.factory("NoteFactory", function($http, FBCreds, AuthFactory) {
 
 // console.log("getting notes", getNotes(obj));
 
-return { postNote, getNotes, deleteNote };
+return { postNote, getNotes, deleteNote, updateNote };
 
 
 
