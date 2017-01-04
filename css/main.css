@@ -4,6 +4,21 @@ html {
 
 }
 
+.card {
+  text-align: center;
+  height: 500px;
+}
+
+.headers {
+  text-align: center;
+}
+
+#imgUrl {
+  max-height: 340px;
+  max-width: 250px;
+  margin: auto;
+}
+
 /*
 input#file {
   width: 0.1px;

@@ -1,12 +1,15 @@
 <div id="libraryContainer" class="container" ng-controller="LibraryCtrl">
 
-  <h2> your note library </h2>
+  <h2 class="headers"> - Note Library - </h2>
+  <h6 class="headers">Click the title of the card to edit your journal entry</h6>
+  <h6 class="headers">Click the red circle X to delete an entry</h6>
+    <p class="headers">Search below by category, family member, or title</p>
 
   <!-- search bar -->
     <div class="row">
       <div class="input-field col s12">
         <input id="Search" type="text" ng-model="searchText">
-        <label for="Search">Search by Category</label>
+        <label for="Search">Search</label>
       </div>
     </div>
 
@@ -23,8 +26,8 @@
     </ul> -->
 <!--  -->
 
-<div class="row" ng-repeat="note in notes | filter: searchText">
-<div class="card col s6 m6">
+<div class="row center">
+<div class="card col s6" ng-repeat="note in notes | filter: searchText">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" id="imgUrl" ng-src="{{note.imgUrl}}">
     </div>
@@ -32,7 +35,7 @@
       <span class="card-title activator grey-text text-darken-4" ng-model="Title">
                   <a ng-href="notes/details/{{note.id}}">{{note.Title}}</a>
                   <i class="material-icons right">more_vert</i></span>
-      <p><a class="btn-floating btn-small waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a></p>
+      <p><a class="btn-floating btn-small waves-effect waves-light red center" ng-click="delete(note.id)"><i class="material-icons">clear</i></a></p>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4" ng-model="Text">{{note.Title}}<i class="material-icons right">close</i></span>
