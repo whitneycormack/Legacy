@@ -1,14 +1,9 @@
 
-
-/*# sourceMappingURL=main.css.map */
-
-label.upload-group {
-  width: 100px;
-  height: 40px;
-  padding: 5 5 5 5;
-  text-align: center;
+html {
+  font-family: 'Montserrat', sans-serif;
 
 }
+
 /*
 input#file {
   width: 0.1px;
@@ -16,8 +11,16 @@ input#file {
   position: absolute;
   z-index: -1;
 }*/
-
+/*
 #imgUrl {
-  height: 400px;
-  width: 600px;
+  height: 300px;
+  width: 300px;
 }
+*/
+/*#libraryContainer {
+  margin-left: 80px;
+  margin-right: 60px;
+}*/
+
+
+

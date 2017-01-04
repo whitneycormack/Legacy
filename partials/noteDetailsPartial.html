@@ -1,11 +1,21 @@
 <div>
 
 
-<h2>Note Details</h2>
+<h3> Edit Note Details</h3>
 <div>
   <h4>Title:</h4>
   <h4 ng-if="!editModeFlag">{{selectedItem.Title}}</h4>
   <input ng-if="editModeFlag" ng-model=selectedItem.Title>
+</div>
+<div>
+  <h4>Category:</h4>
+  <h4 ng-if="!editModeFlag">{{selectedItem.Category}}</h4>
+  <input ng-if="editModeFlag" ng-model=selectedItem.Category>
+</div>
+<div>
+  <h4>Image URL:</h4>
+  <h4 ng-if="!editModeFlag">{{selectedItem.imgUrl}}</h4>
+  <input ng-if="editModeFlag" ng-model=selectedItem.imgUrl>
 </div>
 <div>
   <h5>Text:</h5>
@@ -13,8 +23,8 @@
   <input ng-if="editModeFlag" ng-model=selectedItem.Text>
 </div>
 
-<button ng-if="!editModeFlag" ng-click="editMode()">Edit</button>
-<button ng-if="editModeFlag" ng-click="submitEdit()">Submit Edit</button>
+<button class="waves-effect waves-light btn-large" ng-if="!editModeFlag" ng-click="editMode()">Edit</button>
+<button class="waves-effect waves-light btn-large" ng-if="editModeFlag" ng-click="submitEdit()">Submit Edit</button>
 
 </div>
 

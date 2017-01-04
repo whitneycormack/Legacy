@@ -1,6 +1,6 @@
-<div ng-controller="LibraryCtrl">
+<div id="libraryContainer" class="container" ng-controller="LibraryCtrl">
 
-  <h2> note library </h2>
+  <h2> your note library </h2>
 
   <!-- search bar -->
     <div class="row">
@@ -10,18 +10,63 @@
       </div>
     </div>
 
-    <ul class="collection" ng-repeat="note in notes | filter: searchText">
+    <!-- <ul class="collection" ng-repeat="note in notes | filter: searchText">
 
       <h5 class="title" ng-model="Title"><a ng-href="notes/details/{{note.id}}">{{note.Title}}</a></h5>
+
       <p class="text" ng-model="Text">{{note.Text}}</p>
 
       <img id="imgUrl" ng-src="{{note.imgUrl}}">
 
       <a class="btn-floating btn-large waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a>
 
-    </ul>
+    </ul> -->
+<!--  -->
+
+<div class="row" ng-repeat="note in notes | filter: searchText">
+<div class="card col s6 m6">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" id="imgUrl" ng-src="{{note.imgUrl}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4" ng-model="Title">
+                  <a ng-href="notes/details/{{note.id}}">{{note.Title}}</a>
+                  <i class="material-icons right">more_vert</i></span>
+      <p><a class="btn-floating btn-small waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4" ng-model="Text">{{note.Title}}<i class="material-icons right">close</i></span>
+      <p>{{note.Text}}</p>
+    </div>
+  </div>
+
+
+
+
+
+      </div>
+
+
 
   </div>
+        <!-- <div class="col s6 m6">
+          <div class="card medium">
+            <div class="card-image">
+              <img id="imgUrl" ng-src="{{note.imgUrl}}">
+              <span class="card-title" ng-model="Title">
+                  <a ng-href="notes/details/{{note.id}}">
+                    <h6>{{note.Title}}</h6>
+                  </a>
+                </span>
+            </div>
+            <div class="card-content" ng-model="Text">
+              <p>{{note.Text}}</p>
+            </div>
+            <div class="card-action">
+              <a class="btn-floating btn-small waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a>
+            </div>
+          </div>
+        </div> -->
 
 
 

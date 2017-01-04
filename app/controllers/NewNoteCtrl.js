@@ -5,6 +5,7 @@ app.controller("NewNoteCtrl", function ($scope, $location, $timeout, NoteFactory
     Title: "",
     Date: "",
     Text: "",
+    Categories: "",
     imgUrl: ""
 
   };
