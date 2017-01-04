@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("LegacyApp", ["ngRoute"]);
+var app = angular.module("LegacyApp", ["ngRoute", "ng-file-model"]);
 
 let isAuth = (AuthFactory) => new Promise( (resolve, reject) => {
   AuthFactory.isAuthenticated()
@@ -22,7 +22,8 @@ app.config(function($routeProvider, FBCreds) {
   let authConfig = {
       apiKey: FBCreds.apiKey,
       authDomain: FBCreds.authDomain,
-      databaseURL: FBCreds.databaseURL
+      databaseURL: FBCreds.databaseURL,
+      storageBucket: FBCreds.storageBucket
     };
 
   firebase.initializeApp(authConfig);

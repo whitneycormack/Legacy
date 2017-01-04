@@ -1,10 +1,13 @@
 <div>
   <h2>Upload Photo</h2>
   <input type="text" id="photoTitle" placeholder="Enter your title here">
+
   <label class="upload-group">
   Upload File
-    <input type="file" class="upload-group">
+    <input type="file" class="upload-group" ng-file-model="userImage">
+    <img style="width:50%" ng-src="{{userImage.data}}" class="col s2"/>
   </label>
+
   <input type="text" id="imageCaption" placeholder="Enter your caption here">
 
   <button type="waves-effect waves-light btn-large" id="uploadButton" ng-click="addPhotoEntry()"> Add New Photo </button>

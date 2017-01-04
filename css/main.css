@@ -17,3 +17,7 @@ input#file {
   z-index: -1;
 }*/
 
+#imgUrl {
+  height: 400px;
+  width: 600px;
+}

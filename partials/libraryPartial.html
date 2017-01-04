@@ -1,18 +1,28 @@
 <div ng-controller="LibraryCtrl">
 
-<h2> note library </h2>
+  <h2> note library </h2>
 
-<ul class="collection" ng-repeat="note in notes" | filter: user.uid>
+  <!-- search bar -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="Search" type="text" ng-model="searchText">
+        <label for="Search">Search by Category</label>
+      </div>
+    </div>
 
-  <h5 class="title" ng-model="Title"><a ng-href="notes/details/{{note.id}}">{{note.Title}}</a></h5>
-  <p class="text" ng-model="Text">{{note.Text}}</p>
+    <ul class="collection" ng-repeat="note in notes | filter: searchText">
 
-  <a class="btn-floating btn-large waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a>
+      <h5 class="title" ng-model="Title"><a ng-href="notes/details/{{note.id}}">{{note.Title}}</a></h5>
+      <p class="text" ng-model="Text">{{note.Text}}</p>
 
-  <!-- <button ng-click="delete(note.id)"></button> -->
-</ul>
+      <img id="imgUrl" ng-src="{{note.imgUrl}}">
 
-</div>
+      <a class="btn-floating btn-large waves-effect waves-light red right" ng-click="delete(note.id)"><i class="material-icons">clear</i></a>
+
+    </ul>
+
+  </div>
+
 
 
 
