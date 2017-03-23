@@ -1,30 +1,29 @@
 "use strict";
 
-var app = angular.module("LegacyApp", ["ngRoute"]);
+var app = angular.module("LegacyApp", ["ngRoute", "ng-file-model"]);
 
-// let isAuth = (AuthFactory) => new Promise( (resolve, reject) => {
-//   AuthFactory.isAuthenticated()
-//   .then( (userExists) => {
-//     // userExists is set to true or false
-//     if (userExists) {
-//       resolve();
-//      } else {
-//       reject();
-//       }
-//     });
-//   });
+let isAuth = (AuthFactory) => new Promise( (resolve, reject) => {
+  AuthFactory.isAuthenticated()
+  .then( (userExists) => {
+    // userExists is set to true or false
+    if (userExists) {
+      resolve();
+     } else {
+      reject();
+      }
+    });
+  });
 
 
 
-app.config(function($locationProvider) {
-  $locationProvider.html5Mode(true);
-});
 
 // routing
 app.config(function($routeProvider, FBCreds) {
   let authConfig = {
       apiKey: FBCreds.apiKey,
-      authDomain: FBCreds.authDomain
+      authDomain: FBCreds.authDomain,
+      databaseURL: FBCreds.databaseURL,
+      storageBucket: FBCreds.storageBucket
     };
 
   firebase.initializeApp(authConfig);
@@ -42,10 +41,10 @@ app.config(function($routeProvider, FBCreds) {
     templateUrl: 'partials/libraryPartial.html',
     controller: 'LibraryCtrl'
   })
-  .when('/family', {
-    templateUrl: 'partials/familyPartial.html',
-    controller: 'FamilyCtrl'
-  })
+  // .when('/family', {
+  //   templateUrl: 'partials/familyPartial.html',
+  //   controller: 'FamilyCtrl'
+  // })
   .when('/notes/details/:itemId', {
     templateUrl: 'partials/noteDetailsPartial.html',
     controller: 'NoteViewCtrl'
@@ -54,11 +53,24 @@ app.config(function($routeProvider, FBCreds) {
     templateUrl: 'partials/editPartial.html',
     controller: 'EditCtrl'
   })
-  .otherwise('/');
+  .when('/photos', {
+    templateUrl: 'partials/photoPartial.html',
+    controller: 'PhotoCtrl'
+  })
+  .otherwise({
+    redirectTo: "/"
+  });
 });
 
 
+// app.run($rootScope) => {
+//   $rootScope.$on("$routeChangeError", function() {
+//     $location.path("/login");
+//   });
+// };
 
 
 
-
+app.config(function($locationProvider) {
+  $locationProvider.html5Mode(true);
+});

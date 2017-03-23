@@ -1,4 +1,4 @@
-<div class="valign-wrapper login-container">
+<div class="valign-wrapper login-container container">
 
   <div class="row container-fluid grid-example col s10 valign">
     <h2 class="center-align">login or register</h2>
@@ -7,15 +7,14 @@
       email: <input type="text" autofocus="true" ng-model="account.email">
     </div>
 
-
     <div class="grid-example col s10 valign">
       password: <input type="password" ng-model="account.password">
     </div>
 
     <div class="grid-example col s10 valign">
-      <button class="waves-effect waves-light btn-large" ng-click="register()">register</button>
-      <button class="waves-effect waves-light btn-large" ng-click="login()">login</button>
-      <button class="waves-effect waves-light btn-large" ng-click="logout()">logout</button>
+      <a href="/library" title=""><button class="waves-effect waves-light btn-large" ng-click="register()">register</button></a>
+      <a href="/library" title=""><button class="waves-effect waves-light btn-large" ng-click="login()">login</button></a>
+      <!-- <button class="waves-effect waves-light btn-large" ng-click="logout()">logout</button> -->
     </div>
 
   </div>

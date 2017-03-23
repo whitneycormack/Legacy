@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NoteViewCtrl", function ($scope, $routeParams, NoteFactory) {
+app.controller("NoteViewCtrl", function ($scope, $routeParams, $location, $timeout, NoteFactory) {
   console.log("noteview made it");
   $scope.notes = [];
   $scope.editModeFlag = false;
@@ -14,7 +14,8 @@ app.controller("NoteViewCtrl", function ($scope, $routeParams, NoteFactory) {
     console.log($scope.selectedItem)
     NoteFactory.updateNote($scope.selectedItem, $routeParams.itemId).then(function(){
       console.log("success");
-      //location url
+      $location.path("/library");
+      $timeout();
     });
   }
 

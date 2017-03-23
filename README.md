@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/whitneycormack/Legacy/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# Legacy
+Front-End Capstone Project
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## What is Legacy?
+Legacy is an Evernote-style app that allows users to save text and photos to their profiles specific to a family member.
 
-### Markdown
+### Before You Begin
+This app uses Firebase as it's database. You will need to create an values/FBCreds.js with your personal Firebase info.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```
+app.constant("FBCreds", {
+    apiKey: "SecretAPIKey",
+    authDomain: "WhateverYourAuthDomain.firebaseapp.com",
+    databaseURL: "https://YourDatabase.firebaseio.com",
+    storageBucket: "WhereToStorePhotos.appspot.com",
+  });
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### To install
+cd into the lib directory and run npm install
+```
+cd lib
+npm install
+```
 
-### Jekyll Themes
+#### Technology Used
+* Angular
+* Materialize
+* Jquery
+* Firebase
+* Grunt
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/whitneycormack/Legacy/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
