@@ -1,3 +1,4 @@
+
 # Legacy
 Front-End Capstone Project
 
@@ -30,7 +31,4 @@ npm install
 * Jquery
 * Firebase
 * Grunt
-
-
-
 
